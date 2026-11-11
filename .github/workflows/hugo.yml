@@ -41,6 +41,12 @@ jobs:
 
       - name: Add Dart Sass to PATH
         run: echo "$(pwd)/dart-sass" >> $GITHUB_PATH
+        
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.169.0'
+          extended: true
 
       - name: Build with Hugo
         run: hugo --gc --minify --baseURL "https://${{ github.repository_owner }}.github.io/"
